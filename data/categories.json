@@ -1,0 +1,7 @@
+{
+   menu-item:[
+     {name:"Overview", url:"/"},
+     {name:"Puzle", url:"/puzle"},
+     {name:"Tournir", url:"/tournir"},
+   ]
+}

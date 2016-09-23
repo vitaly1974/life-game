@@ -1,0 +1,18 @@
+    <div ng-controller="gameController">
+      <p><span>Count Generation:</span>{{CountGeneration}}</p>
+      <p><span>Player1:</span>{{Player1}}  <span>Player2:</span>{{Player2}}</p>
+      <p><label for="mySelect">Make a choice:</label>
+        <select name="mySelect" id="mySelect"
+        ng-options="option.name for option in Players.availableOptions track by option.id"
+        ng-model="Players.selectedOption"></select></p>
+      <table>
+        <tr ng-repeat="a in Field track by $index">
+          <td ng-repeat="b in a track by $index" class="{{b|CssCellStatus}}"
+          ng-click="ChangeCell($parent.$index, $index)"></td>
+        </tr>
+      </table>
+      <input type="button" ng-click="NewGame()" value="New Game" />
+      <input type="button" ng-click="Play()" value="Play" />
+      <input type="button" ng-click="Stop()" value="Stop" />
+      <input type="button" ng-click="NextStep()" value="Next Step" />
+    </div>
