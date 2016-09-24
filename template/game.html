@@ -6,7 +6,7 @@
         <select name="mySelect" id="mySelect"
         ng-options="option.name for option in Players.availableOptions track by option.id"
         ng-model="Players.selectedOption"></select></p>
-      <table>
+      <table class="tfield">
         <tr ng-repeat="a in Field track by $index">
           <td ng-repeat="b in a track by $index" class="{{b|CssCellStatus}}"
           ng-click="ChangeCell($parent.$index, $index)"></td>
