@@ -8,6 +8,13 @@
     overflow-x: hidden;
  }
 
+ td{width: 15px; height: 15px}
+ .dead{background-color: yellow;}
+ .live1{background-color: blue;}
+ .pl1{background-color: pink;}
+ .live2{background-color: red;}
+ .pl2{background-color: black;}
+
 /* Toggle Styles */
 
 #wrapper {

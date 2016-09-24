@@ -6,10 +6,19 @@
   app.service("LifeService",LifeService);
   app.factory("MenuService", MenuService);
   app.directive("sideTemplateMenu",sideTemplateMenu);
+  app.directive("puzzleField",puzzleField);
   app.config(function($routeProvider) {
       $routeProvider
       .when("/", {
         templateUrl : "template/main.html"
+      }).when("/puzles", {
+        templateUrl : "template/puzzle.html"
+      }).when("/overview", {
+        templateUrl : "template/overview.html"
+      }).when("/game", {
+        templateUrl : "template/game.html"
+      }).when("/contact", {
+        templateUrl : "template/contact.html"
       });
 });
 
@@ -17,31 +26,28 @@
       $scope.menuHeader = "#TipMe";
       var promise = MenuService.getMenu();
       promise.then(function(response){
-          $scope.menuData = response.data;
+          $scope.menuData = response.data.menu;
       });
   });
 
   function sideTemplateMenu(){
     var ddo ={
-       template: '<li><a href="#">{{category.name}}</a></li>'
+       templateUrl: 'template/menu.html'
     }
     return ddo;
   }
 
-  function MenuService($http,$q){
+  function puzzleField(){
+    var ddo ={
+      templateUrl: 'template/field.html'
+    }
+    return ddo;
+  }
+
+  function MenuService($http){
       var instance = {
           getMenu: function(){
-              var deferred = $q.defer();
-              var data = { "data" : [
-                          {"name": "Home", "href": "#"},
-                          {"name": "Overview", "href": "#"},
-                          {"name": "Puzzles", "href": "#"},
-                          {"name": "Game", "href": "#"},
-                          {"name": "Contract", "href": "#"},
-                          ]
-                      };
-              deferred.resolve(data);
-              return  deferred.promise;
+            return $http.get("data/categories.json")
             }
           };
       return instance;

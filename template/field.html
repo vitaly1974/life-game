@@ -1,0 +1,5 @@
+<table>
+  <tr ng-repeat="a in puzzleField track by $index">
+    <td ng-repeat="b in a track by $index" class="{{b|CssCellStatus}}"></td>
+  </tr>
+</table>

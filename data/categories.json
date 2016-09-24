@@ -1,7 +1,9 @@
 {
-   menu-item:[
-     {name:"Overview", url:"/"},
-     {name:"Puzle", url:"/puzle"},
-     {name:"Tournir", url:"/tournir"},
-   ]
+   "menu" :
+  [
+    {"name": "Overview", "href": "#/overview"},
+    {"name": "Puzzle of Day", "href": "#/puzles"},
+    {"name": "Game", "href": "#/game"},
+    {"name": "Contract", "href": "#/contact"}
+  ]
 }
