@@ -8,6 +8,7 @@
   app.factory("PuzzleService",PuzzleService);
   app.directive("sideTemplateMenu",sideTemplateMenu);
   app.directive("puzzleField",puzzleField);
+  app.directive("puzzleFieldSolve",puzzleFieldSolve);
   app.config(function($routeProvider) {
       $routeProvider
       .when("/", {
@@ -35,7 +36,12 @@
     var promise = PuzzleService.getField();
     promise.then(function(result){
        $scope.puzzleField = result;
+       $scope.puzzleFieldSolve = PuzzleService.getEmptyField(result.length);
     });
+
+    $scope.Clear = function(){
+      $scope.puzzleFieldSolve = PuzzleService.getEmptyField($scope.puzzleFieldSolve.length);
+    }
   });
 
   function sideTemplateMenu(){
@@ -50,8 +56,28 @@
       restrict: "E",
       templateUrl: 'template/field.html',
       scope: {fieldData:"<"}
-
     }
+    return ddo;
+  }
+
+  function puzzleFieldSolve(){
+
+    var PuzzleFieldSolveController = function($scope){
+        var ctrl = this;
+        ctrl.OnCellClick = function(i,j){
+            $scope.fieldData[i][j] == 0 ? $scope.fieldData[i][j] =1: $scope.fieldData[i][j] = 0;
+        }
+    };
+
+    var ddo = {
+      restrict:"E",
+      templateUrl: 'template/field_solve.html',
+      scope:{
+        fieldData:"="
+      },
+      controller: PuzzleFieldSolveController,
+      controllerAs: "ctrl"
+    };
     return ddo;
   }
 
@@ -88,6 +114,19 @@
             deffered.resolve(field);
           });
           return deffered.promise;
+       },
+       clearField: function(a){
+         var b = a.slice(0);
+         var size = a.length;
+         for (var i = 0; i < size; i++) {
+           for (var j = 0; j < size; j++) {
+             b[i][j] = 0;
+           }
+         }
+         return b;
+       },
+       getEmptyField: function(a){
+          return init(a);
        }
     };
 

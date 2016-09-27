@@ -1,5 +1,18 @@
 <h1>Puzzle of day</h1>
 <p>You must solve puzzle most possible generation.</p>
 <div ng-controller="puzzleController">
-    <puzzle-field field-data="puzzleField"></puzzle-field>
+  <div class="col-lg-6 col-md-4 col-xs-6">
+    <h4>Puzzle</H4>
+    <puzzle-field field-data="puzzleField">
+    </puzzle-field>
+  </div>
+  <div class="col-lg-6 col-md-4 col-xs-6">
+    <h4>Solve</h4>
+    <puzzle-field-solve field-data="puzzleFieldSolve">
+    </puzzle-field-solve>
+    <div class="panelControls">
+      <input type="button" value="Clear" ng-click="Clear();"/>
+      <input type="button" value="Check It!"/>
+    </div>
+  </div>
 </div>

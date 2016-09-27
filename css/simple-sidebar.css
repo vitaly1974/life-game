@@ -14,6 +14,9 @@
  .pl1{background-color: pink;}
  .live2{background-color: red;}
  .pl2{background-color: black;}
+ .panelControls{
+   padding-top: 10px;
+ }
 
 /* Toggle Styles */
 
