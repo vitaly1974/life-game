@@ -14,9 +14,19 @@
        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
    <![endif]-->
-    <script type="text/javascript" src="script\angular.min.js"></script>
+    <script type="text/javascript" src="libs\angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
-    <script type="text/javascript" src="script\app.js"></script>
+    <!-- Modules-->
+    <script type="text/javascript" src="src\app.js"></script>
+    <script type="text/javascript" src="src\menu\menu.module.js"></script>
+    <script type="text/javascript" src="src\puzzle\puzzle.module.js"></script>
+    <!-- Menu-->
+    <script type="text/javascript" src="src\menu\menu.service.js"></script>
+    <script type="text/javascript" src="src\menu\menu.directive.js"></script>
+    <!--Puzzle-->
+    <script type="text/javascript" src="src\puzzle\puzzle.service.js"></script>
+    <script type="text/javascript" src="src\puzzle\puzzle.directive.js"></script>
+
   </head>
   <body ng-app="app">
     <div id="wrapper">
@@ -30,9 +40,6 @@
                 <side-template-menu ng-repeat="category in menuData"></side-template-menu>
             </ul>
         </div>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
@@ -43,18 +50,9 @@
                 </div>
             </div>
         </div>
-        <!-- /#page-content-wrapper -->
-
     </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="script/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="script/bootstrap.min.js"></script>
-
-    <!-- Menu Toggle Script -->
+    <script src="libs/jquery.min.js"></script>
+    <script src="libs/bootstrap.min.js"></script>
     <script>
     $("#menu-toggle").click(function(e) {
         e.preventDefault();

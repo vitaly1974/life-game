@@ -1,0 +1,5 @@
+<table class="tfield">
+  <tr ng-repeat="a in fieldData track by $index">
+    <td ng-repeat="b in a track by $index" class="{{b|CssCellStatus}}" ng-click="ctrl.OnCellClick($parent.$index,$index)"></td>
+  </tr>
+</table>
