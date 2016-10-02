@@ -8,11 +8,11 @@
   </div>
   <div class="col-lg-6 col-md-4 col-xs-6">
     <h4>Solve</h4>
-    <puzzle-field-solve field-data="puzzleFieldSolve">
+    <puzzle-field-solve field-data="puzzleFieldSolve" field-gen="puzzleFieldGen" on-change="OnChange(a,b,c)">
     </puzzle-field-solve>
     <div class="panelControls">
       <input type="button" value="Clear" ng-click="Clear();"/>
-      <input type="button" value="Check It!"/>
+      <input type="button" value="Check It!" ng-click="ChekIt();"/>
     </div>
   </div>
 </div>

@@ -32,11 +32,33 @@
         getEmptyField: function(a){
            return init(a);
         },
-        nextGeneration:function(a){
-          // Here nextGeneration implement
+        isEmpty:function(a){
+          var size = a.length;
+          var result = true
+          for (var i = 0; i < size; i++) {
+              for (var j = 0; j < size; j++) {
+                if(a[i][j]==1){
+                  result = false;
+                  break;
+                }
+              }
+            }
+          return result;
+        },
+        compareArray: function(a,b){
+          var size = a.length;
+          var result = true
+          for (var i = 0; i < size; i++) {
+              for (var j = 0; j < size; j++) {
+                if(a[i][j] != b[i][j]){
+                  result = false;
+                  break;
+                }
+              }
+            }
+          return result;
         }
-
-     };
+      };
 
      return instance;
    }
