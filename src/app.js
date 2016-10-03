@@ -2,7 +2,7 @@
 //Player2 status: 2-live 9-marked
 (function(){
   "use strict";
-  var app = angular.module("app",["ngRoute","menu","puzzle"]);
+  var app = angular.module("app",["ngRoute","menu","puzzle","winners"]);
   app.filter("CssCellStatus",CssCellStatusFilter);
   app.service("LifeService",LifeService);
 

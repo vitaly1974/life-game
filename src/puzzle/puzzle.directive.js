@@ -1,5 +1,6 @@
 (function(){
   "use strict";
+
   var puzzle =  angular.module("puzzle");
   puzzle.directive("puzzleField",puzzleField);
   puzzle.directive("puzzleFieldSolve",puzzleFieldSolve);
@@ -16,6 +17,7 @@
         $interval.cancel(stop);
         stop = undefined;
       }
+      $scope.CountGen = 0;
       $scope.puzzleFieldSolve = PuzzleService.getEmptyField($scope.puzzleField.length);
       $scope.puzzleFieldGen = PuzzleService.getEmptyField($scope.puzzleField.length);
     }
